@@ -1,11 +1,12 @@
 const { Sequelize } = require('sequelize')
 const fs = require('fs')
+require('dotenv').config()
 
 
 const sequelize = new Sequelize("ideias_db",
-"luisfelipe",
-"lf1506..", {
-    host: "luisideiasapp.mysql.database.azure.com",
+process.env.AZURE_USER_MYSQL,
+process.env.AZURE_SENHA_MYSQL, {
+    host: process.env.AZURE_URL_MYSQL,
     dialect: 'mysql',
     dialectOptions: {
         ssl: {
